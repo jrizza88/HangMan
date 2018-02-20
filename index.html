@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country guessing Hangman!</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<!-- <body background="assets/images/map.jpg"> -->
+<body>
+  <header> 
+    <div id="head"><h1>Guess that country hangman!</h1>
+    </div>
+    <div id="subhead"> 
+      <h2> Press any key to get started <br>
+          You will have seven total guesses!
+      </h2>
+    </div>
+  </header>
+<div class="container">
+        <div class="counter">
+          <div id="guessesLeft">Guesses left:</div>
+          <div id="win-counter">Wins:</div>
+          <div id="loss-counter">Losses:</div>
+        </div>
+
+
+   <!--  Create div id for game progress -->
+
+<!--    <div id="gameDisplay">
+     <p>Hangman display here</p>
+   </div> -->
+
+   <div id="lettersGuessed">
+      <h4> letters guessed already: </h4>
+   </div>
+
+  <button id="reset">Reset</button>
+  <!--  <button id="resetBtn" onClick="resetButton()">Reset</button> -->
+</div>
+
+  <div class="gameDisplay">
+     <p>Hangman display here</p>
+   </div>
+
+<footer>Jamar</footer>
+
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
