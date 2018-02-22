@@ -1,8 +1,7 @@
  // word bank
   var words = ["ARGENTINA", "MEXICO", "CANADA", "INDONESIA", "LITHUANIA", "PORTUGAL", "NICARAGUA", "SOUTH AFRICA", "NEW ZEALAND", "TURKEY", "SPAIN"];
   // global variables
-    var guesses = 9;
-    var guessesLeft =[];
+    var guessesLeft =10;
     // var guessedLetter; maybe use later
     var correctLetter =[];
     // var lettersGuessed = document.getElementById("lettersGuessed");
@@ -14,24 +13,12 @@
     var displayWord =[];
     // var userGuess =[];
     var selectedWord;
-    var hiddenWord;
+    var hiddenWord =[];
+     var letterCounter;
 
 // use math.floor to randomly select word from "words" variable
-var randomizedWord = Math.floor(Math.random() * words.length);
+var randomizedWord = words[Math.floor(Math.random() * words.length)];
 console.log(randomizedWord);
-
-// DIRECTIONS //
-
-// start game by using on keyUp function
-// make a variable to make the user guess option
-// use math.floor to randomly select word from "words" variable
-// use for loop to match user selection to random selection letters
-// make a way for user input to match the random word
-// have a comparision for human letters to randomized selected letters
-// convert the randomized words to an _
-// reveal correct letters when user makes correct choice (for loop)
-// subtract score when wrong word is used
-// game over when no more guesses left
 
 // start game by using on keyUp function
 document.onkeyup = function(event){
@@ -40,48 +27,48 @@ document.onkeyup = function(event){
 
 letterInput.push(userGuess);
 document.getElementById('lettersGuessed').innerHTML = letterInput;
-letterInput.push(correctGuess);
+// letterInput.push(correctGuess);
 // meant to push into HTML
-document.getElementById('correctLetter').innerHTML = letterInput;
 
- selectedWord = words[randomizedWord];
- hiddenWord = selectedWord.replace(/\S/gi, '_');
+ // selectedWord = words[randomizedWord];
+ // selectedWord = randomizedWord[i];
+  hiddenWord = randomizedWord.replace(/\S/gi, '_');
 
 // var counter = words;
- var letterCounter;
-
- 
-
 
 // console.log("the random word chosen is: " + randomCountryWord());
- console.log("selected word: " + selectedWord + ". HiddenWord: " + hiddenWord);
+ console.log("HiddenWord: " + hiddenWord);
 
 // create function to compare selected letter with a letter in the selected word
       // var compareTheLetter = random.indexOf(userGuess);
     
   // compare user input to randomCountryWord
-
-
-      for (var i = 0; i <= words.length; i++) {
+      for (var i = 0; i <= randomizedWord.length; i++) {
         // make sure anything not in the alphabet can be selected
         if (userGuess < "A" || userGuess > "Z") {
           console.log("you did not guess a letter");
         }
         // finally getting somewhere with selectedWord
-        else if(userGuess === selectedWord[i]) {
-          // letterCounter = (userGuess.match(/\S/g) || []).length;
-          // letterCounter = (userGuess.match(/""/g) || []).length;
+          else if(userGuess === randomizedWord[i]){
           correctLetter[i] = userGuess;
             correctGuess++;
+            letterInput.push(correctGuess);
+            document.getElementById('correctLetter').innerHTML = correctLetter;
             console.log("you choose a correct letter!" + userGuess);
+            console.log(correctGuess)
+          }
             // console.log(letterCounter)
-        } else {
-          userGuess === selectedWord[i]
-          // correctLetter[i] != userGuess;
-          wrongGuess++;
-          console.log("you choose the wrong letter!" + userGuess)
-          guesses--;
+        // } else if(userGuess != randomizedWord[i]) {
+        //    correctLetter[i] != userGuess;
+        //   wrongGuess++;
+        //   console.log("you choose the wrong letter!" + userGuess)
+        //   guessesLeft--;
+        //   console.log("guesses left: " + guessesLeft);
+        // }
+        else if (userGuess != randomizedWord[i]){
+          console.log("wrong guess")
         }
+
       }
 
   }; // closing tag of function event
@@ -89,6 +76,8 @@ document.getElementById('correctLetter').innerHTML = letterInput;
   //  for (var i = 0; i <= words.length; i++) {
   //       if (userGuess < "A" || userGuess > "Z") {
   //         console.log("you did not guess a letter");
+            // letterCounter = (userGuess.match(/\S/g) || []).length;
+          // letterCounter = (userGuess.match(/""/g) || []).length;
   //       }
   //       // finally getting somewhere with selectedWord
   //       else if(userGuess === selectedWord[i]) {
@@ -149,8 +138,8 @@ document.getElementById('correctLetter').innerHTML = letterInput;
 
 // create function to reset the game
 
-function reset(){
-}
+// function reset(){
+// };
 
 // set init(); to initalize the game once completed
 
