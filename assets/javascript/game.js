@@ -9,7 +9,6 @@
     var losses = 0;
     var letterInput =[];
     var correctGuess =0;
-    var wrongGuess = 0;
     var displayWord =[];
     // var userGuess =[];
     var selectedWord;
@@ -19,20 +18,21 @@
 // use math.floor to randomly select word from "words" variable
 var randomizedWord = words[Math.floor(Math.random() * words.length)];
 console.log(randomizedWord);
+ document.getElementById('guessesLeft').innerHTML = guessesLeft;
 
 // start game by using on keyUp function
 document.onkeyup = function(event){
     var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
-    console.log(userGuess);
-
+    // console.log(userGuess);
+// userGuess shows the number of times guesses were inputted. 
 letterInput.push(userGuess);
 document.getElementById('lettersGuessed').innerHTML = letterInput;
 // letterInput.push(correctGuess);
 // meant to push into HTML
-
  // selectedWord = words[randomizedWord];
  // selectedWord = randomizedWord[i];
   hiddenWord = randomizedWord.replace(/\S/gi, '_');
+  document.getElementById("mysteryWord").innerHTML = hiddenWord;
 
 // var counter = words;
 
@@ -41,131 +41,50 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
 
 // create function to compare selected letter with a letter in the selected word
       // var compareTheLetter = random.indexOf(userGuess);
+
+    var inputLetter = 0;
     
   // compare user input to randomCountryWord
       for (var i = 0; i <= randomizedWord.length; i++) {
         // make sure anything not in the alphabet can be selected
         if (userGuess < "A" || userGuess > "Z") {
           console.log("you did not guess a letter");
+
         }
         // finally getting somewhere with selectedWord
-          else if(userGuess === randomizedWord[i]){
+          else if(randomizedWord[i] === userGuess){
+          // correctLetter[i] = userGuess;
           correctLetter[i] = userGuess;
-            correctGuess++;
-            letterInput.push(correctGuess);
+          inputLetter++;
+            // letterInput.push(correctGuess); - this put in the numbers
             document.getElementById('correctLetter').innerHTML = correctLetter;
-            console.log("you choose a correct letter!" + userGuess);
-            console.log(correctGuess)
+            console.log("you choose a correct letter!: " + userGuess);
+            // console.log("it's a correct guess!: " + correctGuess);
           }
             // console.log(letterCounter)
-        // } else if(userGuess != randomizedWord[i]) {
-        //    correctLetter[i] != userGuess;
-        //   wrongGuess++;
-        //   console.log("you choose the wrong letter!" + userGuess)
+        // else if (userGuess !== randomizedWord[i]){
+        //   else if (userGuess !== randomizedWord[i])  {
+        //     // userGuess !== randomizedWord[i];
         //   guessesLeft--;
-        //   console.log("guesses left: " + guessesLeft);
+        //   document.getElementById('guessesLeft').innerHTML = guessesLeft;
+        //   console.log("wrong guess");
+        //   console.log("guessesLeft: " + guessesLeft);
         // }
-        else if (userGuess != randomizedWord[i]){
-          console.log("wrong guess")
-        }
 
       }
 
+      if (inputLetter === 0)  {
+            // userGuess !== randomizedWord[i];
+          guessesLeft--;
+          console.log("guessesLeft: " + guessesLeft);
+          console.log(inputLetter);
+          document.getElementById('guessesLeft').innerHTML = guessesLeft;
+        }
+
   }; // closing tag of function event
 
-  //  for (var i = 0; i <= words.length; i++) {
-  //       if (userGuess < "A" || userGuess > "Z") {
-  //         console.log("you did not guess a letter");
-            // letterCounter = (userGuess.match(/\S/g) || []).length;
-          // letterCounter = (userGuess.match(/""/g) || []).length;
-  //       }
-  //       // finally getting somewhere with selectedWord
-  //       else if(userGuess === selectedWord[i]) {
-  //         correctGuess[i] == userGuess;
-  //           correctGuess++;
-  //           console.log("you choose a correct letter!" + userGuess);
-  //       } else {
-  //         console.log("you choose the wrong letter!" + userGuess)
-  //         wrongGuess++;
-  //         guesses--;
-  //       }
-  //     }
 
-  // }; 
+function reset(){
+location.reload();
+};
 
-
-        // if (userGuess < "A" || userGuess > "Z") {
-        //     // return false
-        //     console.log("you did not guess a letter");
-        // } else if (userGuess === selectedWord) {
-        //   console.log("you choose a correct letter!");
-
-        // } else {
-        //   console.log("you choose the wrong letter!");
-        //     guesses--;
-        // }
-    
-
-// create function to initalize the game
-
-// function init(){
-//   // randomCountryWord();
-//   // displayLetter();
-//   // startGame();
-//   // randomCountryWord();
-//   // set guesed left
-//  //  var guessesLeft = 7;
-//  //  // create variable to update incorrect guesses
-//  //  var wrongGuesses = [];
-//  //  // correct guesses
-//  // var correctGuesses = [];
-//  //  // not sure if this should be used - reset();
-// }
-
-// create function to generate and randomize selected word
-
- // return words[random];
-
-
-
-
-
-
-  // if correct, display/reveal correct letter
-
-  // if incorrect subtract guesses left
-
-
-// create function to reset the game
-
-// function reset(){
-// };
-
-// set init(); to initalize the game once completed
-
-
-
-
-// function randomCountryWord(){
-//  var random = Math.floor(Math.random() * words.length)
-//  // return words[random];
-//  selectedWord = words[random];
-//  hiddenWord = selectedWord.replace(/\S/gi, '_');
-// }
-
-
- // function compareLetters(letters){
- //      var compareTheLetter = random.indexOf(userGuess);
- //  // compare user input to randomCountryWord
- //      for (var i = 0; i <= words.length; i++) {
- //        if (userGuess === correctLetter) {
- //            correctGuess++;
- //        } else {
- //          incorrectGuess++;
- //          guessesleft --;
- //        }
- //      }
- //  // if correct, display/reveal correct letter
-
- //  // if incorrect subtract guesses left
- // }

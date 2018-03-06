@@ -20,9 +20,12 @@
   </header>
 <div class="container">
         <div class="counter">
-          <div id="guessesLeft">Guesses left:</div>
-          <div id="win-counter">Wins:</div>
-          <div id="loss-counter">Losses:</div>
+          <p> Guesses left: </p>
+          <div id="guessesLeft"></div>
+          <p> wins </p>
+          <div id="win-counter"></div>
+          <p> losses </p>
+          <div id="loss-counter"></div>
         </div>
 
 
@@ -34,14 +37,14 @@
 
 <div class
    <h4> letters guessed already: </h4>
-     <div id="lettersGuessed">
-     </div>
+     <div id="lettersGuessed"></div>
       <h2> letters guessed correctly: </h2>
-     <div id="correctLetter">
-     </div>
+     <div id="correctLetter"></div>
+     <div id="mysteryWord"></div>
+
   </div>
 
-  <button id="reset">Reset</button>
+  <button id="reset" onclick="reset()" value="Reset the form">Reset</button>
   <!--  <button id="resetBtn" onClick="resetButton()">Reset</button> -->
 </div>
 
