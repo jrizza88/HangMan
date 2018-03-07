@@ -49,7 +49,7 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
         // make sure anything not in the alphabet can be selected
         if (userGuess < "A" || userGuess > "Z") {
           console.log("you did not guess a letter");
-
+              return false;
         }
         // finally getting somewhere with selectedWord
           else if(randomizedWord[i] === userGuess){
