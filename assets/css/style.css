@@ -36,3 +36,10 @@ body {
 .gameDisplay{
   float: right;
 }
+
+#correctLetter{
+  text-decoration: underline;
+}
+
+correctLetter:after {
+    content: '';
