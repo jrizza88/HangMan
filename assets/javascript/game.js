@@ -99,6 +99,8 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
 
 
         if (correctWord === randomizedWord) {
+          var image = document.getElementById("earthDisplay")
+          image.src="../images/youWon.png";
           wins++;
           document.getElementById("win-counter").innerHTML = wins;
           revealLetter = randomizedWord.replace(/\S/i, correctLetter[i]);
@@ -109,41 +111,65 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
 
           else if (guessesLeft === 9){
             console.log("you have 9 guesses left!");
+            var image = document.getElementById("earthDisplay")
+            image.src="assets/images/earth9.png"
           }
 
            else if (guessesLeft === 8){
             console.log("you have 8 guesses left!");
+            var image = document.getElementById("earthDisplay")
+            image.src="assets/images/earth8.png"
           }
            else if (guessesLeft === 7){
             console.log("you have 7 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth7.png"
           }
 
            else if (guessesLeft === 6){
             console.log("you have 6 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth6.png"
           }
 
            else if (guessesLeft === 5){
             console.log("you have 5 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth5.png"
           }
            else if (guessesLeft === 4){
             console.log("you have 4 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth4.png"
           }
            else if (guessesLeft === 3){
             console.log("you have 3 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth3.png"
           }
            else if (guessesLeft === 2){
             console.log("you have 2 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth2.png"
           }
            else if (guessesLeft === 1){
             console.log("you have 1 guesses left!");
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/earth1.png"
           }
 
           else if(guessesLeft === 0){
+            var image = document.getElementById("earthDisplay")
+             image.src="assets/images/youLose.png"
             console.log("You lose!")
+            alert("you lose!")
+            location.reload();
 
           }
 
           else if(guessesLeft === -1){
+               var image = document.getElementById("earthDisplay")
+             image.src="assets/images/youLose.png"
             location.reload();
           }
 
