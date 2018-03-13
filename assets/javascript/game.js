@@ -1,5 +1,5 @@
  // word bank
-  var words = ["ARGENTINA", "MEXICO", "CANADA", "INDONESIA", "LITHUANIA", "PORTUGAL", "NICARAGUA", "SOUTH AFRICA", "NEW ZEALAND", "TURKEY", "SPAIN"];
+  var words = ["ARGENTINA", "MEXICO", "CANADA", "INDONESIA", "LITHUANIA", "PORTUGAL", "NICARAGUA", "SOUTHAFRICA", "NEWZEALAND", "TURKEY", "SPAIN"];
   // global variables
     var guessesLeft =10;
     // var guessedLetter; maybe use later
@@ -76,10 +76,7 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
                     // document.getElementById('mysteryWord').innerHTML = hiddenWord;
                     console.log("you choose a correct letter!: " + userGuess);
                     console.log("inputLetter: " + inputLetter);
-                    // console.log("it's a correct guess!: " + correctGuess);
-                    // if (!letterFound) {
-
-                    // }
+ 
                   } 
               }
 
@@ -100,13 +97,15 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
 
         if (correctWord === randomizedWord) {
           var image = document.getElementById("earthDisplay")
-          image.src="../images/youWon.png";
+          image.src="assets/images/youWon.png"
           wins++;
           document.getElementById("win-counter").innerHTML = wins;
           revealLetter = randomizedWord.replace(/\S/i, correctLetter[i]);
           document.getElementById('mysteryWord').innerHTML = revealLetter;
           alert("You won this round!!!");
-          location.reload();
+             setInterval(function(){
+                location.reload()
+              }, 3000);
         } 
 
           else if (guessesLeft === 9){
@@ -162,15 +161,25 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
             var image = document.getElementById("earthDisplay")
              image.src="assets/images/youLose.png"
             console.log("You lose!")
-            alert("you lose!")
-            location.reload();
 
-          }
+  
+              setInterval(function(){
+                location.reload()
+              }, 3000);
+
+              // location.reload()
+            }
+          //   setTimeout(function(){
+          //   location = ''
+          // },60000)
+            // alert("you lose!")
 
           else if(guessesLeft === -1){
                var image = document.getElementById("earthDisplay")
              image.src="assets/images/youLose.png"
-            location.reload();
+               setInterval(function(){
+                location.reload()
+              }, 3000);
           }
 
 
