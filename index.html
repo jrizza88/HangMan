@@ -13,48 +13,36 @@
     <div id="head"><h1>Guess that country hangman!</h1>
     </div>
     <div id="subhead"> 
-      <h2> Press any key to get started <br>
+      <h2> Press any key to get started |<!-- <br> -->
           You will start with 10 guesses!
       </h2>
     </div>
   </header>
 <div class="container">
-        <div class="counter">
-          <p> Guesses left: </p>
-          <div id="guessesLeft"></div>
-          <p> wins </p>
-          <div id="win-counter"></div>
-          <p> losses </p>
-          <div id="loss-counter"></div>
-        </div>
-
-
-   <!--  Create div id for game progress -->
-
-<!--    <div id="gameDisplay">
-     <p>Hangman display here</p>
-   </div> -->
-
-<div class
-   <h4> letters guessed already: </h4>
-     <div id="lettersGuessed"></div>
-      <h2> letters guessed correctly: </h2>
-     <div id="correctLetter"></div>
-     <h2>  The word </h2>
-     <div id="mysteryWord"></div>
-
+  <div class="counter">
+    <p> Guesses left: </p>
+    <div id="guessesLeft"></div>
+      <p> wins </p>
+      <div id="win-counter"></div>
+        <p> losses </p>
+        <div id="loss-counter"></div>
+          <h4> letters guessed already: </h4>
+          <div id="lettersGuessed"></div>
+            <h2> letters guessed correctly: </h2>
+            <div id="mysteryLetter"></div>
+              <div id="correctLetter"></div>
+                <h2>  The Correct word is: </h2>
+                <div id="mysteryWord"></div>
+                  <button id="reset" onclick="reset()" value="Reset the form">Reset</button>
   </div>
 
-  <button id="reset" onclick="reset()" value="Reset the form">Reset</button>
-  <!--  <button id="resetBtn" onClick="resetButton()">Reset</button> -->
-</div>
-
   <div class="gameDisplay">
-     <p>Hangman display here</p>
-     <img id="earthDisplay" src="assets/images/earth10.png"></div>
+     <img id="earthDisplay" src="assets/images/earth10.png">
    </div>
 
-<footer>Jamar</footer>
+</div>
+
+<footer>Jamar Torres 2018</footer>
 
   <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>

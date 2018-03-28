@@ -16,6 +16,8 @@
      var letterCounter;
      var revealLetter =[];
      var correctWord =[];
+     var wrongGuess = [];
+     var wrongGuessBank = [];
 
 // use math.floor to randomly select word from "words" variable
 var randomizedWord = words[Math.floor(Math.random() * words.length)];
@@ -31,12 +33,9 @@ document.onkeyup = function(event){
 letterInput.push(userGuess);
 
 document.getElementById('lettersGuessed').innerHTML = letterInput;
-// letterInput.push(correctGuess);
-// meant to push into HTML
- // selectedWord = words[randomizedWord];
- // selectedWord = randomizedWord[i];
   hiddenWord = randomizedWord.replace(/\S/gi, '_ ');
-  document.getElementById("mysteryWord").innerHTML = hiddenWord;
+    document.getElementById("mysteryWord").innerHTML = hiddenWord;
+  document.getElementById("mysteryLetter").innerHTML = hiddenWord;
 
 // var counter = words;
 
@@ -46,7 +45,7 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
 // create function to compare selected letter with a letter in the selected word
       // var compareTheLetter = random.indexOf(userGuess);
 
-    var inputLetter = 0;
+    var letterValue = 0;
     
          // compare user input to randomCountryWord
               for (var i = 0; i <= randomizedWord.length; i++) {
@@ -62,35 +61,72 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
                   // correctLetter[i] = userGuess;
      
                   correctLetter[i] = userGuess;
-                  inputLetter++;
+                  letterValue++;
                    // revealLetter = randomizedWord.replace(/\S/i, userGuess);
-                   hiddenWord = randomizedWord.replace(/\S/i, userGuess);
+                   hiddenWord = randomizedWord.replace(/\S/i, letterInput);
+                   // document.getElementById('correctLetter').innerHTML = hiddenWord.replace(/\S/i, letterInput);
+                   document.getElementById('mysteryLetter').innerHTML = hiddenWord.replace(/\S/i, userGuess);
+                   // document.getElementById('mysteryWord').innerHTML = revealLetter.push;
+                   // var revealTheLetter = hiddenWord.replace(/\S/g, userGuess);
+                   // document.getElementById("mysteryWord").innerHTML = hiddenWord;
                    // selectedWord = randomizedWord.replace(/\s+/gi, '');
                    // var spaceIssue = randomizedWord.replace(/\s/g, userGuess);
                   // revealLetter = hiddenWord.replace(/'_'/i, \S/);
               
                   console.log("revealLetter: " + revealLetter);
                     // letterInput.push(correctGuess); - this put in the numbers
-                    document.getElementById('correctLetter').innerHTML = correctLetter.join("");
-                    // document.getElementById('mysteryWord').innerHTML = revealLetter;
-                    // document.getElementById('mysteryWord').innerHTML = hiddenWord;
+                    document.getElementById('correctLetter').innerHTML = correctLetter.slice("_");
+                    // above was formely .join method
                     console.log("you choose a correct letter!: " + userGuess);
-                    console.log("inputLetter: " + inputLetter);
- 
-                  } 
+                    console.log("letterValue: " + letterValue);   
+                    function replaceUnderscore(stringName) {
+
+                    }
+                    // revealLetter = randomizedWord.replace(/\S/i, userGuess[i]);
+                    // document.getElementById('correctLetter').innerHTML =                     
+                      // if (letterInput.indexOf(userGuess) !== -1) {
+                      //        return false;
+                      //     }
+                }
+                  //  else if (randomizedWord[i] != userGuess){
+                  //   letterValue --;
+                  //     if (letterValue < 0) {
+                  //       return false;
+                  //     }
+                  // } 
               }
+
 
 // SAVE THIS WHEN YOU REVEAL WORD FOR SOME REASON!!!
               // revealLetter = randomizedWord.replace(/\S/i, correctLetter[i]);
 
-                if (inputLetter === 0)  {
+                if (letterValue === 0)  {
+                  wrongGuess = letterInput.push(wrongGuessBank[0]);
+                  // wrongGuess = letterInput;
+                 // letterInput.push(wrongGuessBank);
+                 // letterInput.push(wrongGuessBank);
                       // userGuess !== randomizedWord[i];
+                    // wrongGuess.push(wrongGuessBank);
+                    // letterInput.push(wrongGuessBank);
+                    console.log("total wrong guesses: " + letterInput)
+                     console.log("wrongGuess: " + wrongGuess)
+                    console.log("wrongGuessBank: " + wrongGuessBank)
                     guessesLeft--;
                     console.log("guessesLeft: " + guessesLeft);
-                    console.log(inputLetter);
+                    console.log("letterValue: " + letterValue);
                     document.getElementById('guessesLeft').innerHTML = guessesLeft;
-                  }
+                      if (letterValue < 0) {
+                        return false;
+                      }
+                    // for (var i = 0; i< randomizedWord.length; i++) {
+                     // if (wrongGuessBank.indexOf(userGuess) > 1) {
+                     //  return false;
+                     //  console.log("wrongGuess: " + wrongGuess)
+                     //  console.log("wrong guess bank: " + wrongGuessBank)
+                     // }
+                    // }
 
+                  }
 
             correctWord = correctLetter.join("");
 
@@ -99,9 +135,10 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
           var image = document.getElementById("earthDisplay")
           image.src="assets/images/youWon.png"
           wins++;
-          document.getElementById("win-counter").innerHTML = wins;
-          revealLetter = randomizedWord.replace(/\S/i, correctLetter[i]);
-          document.getElementById('mysteryWord').innerHTML = revealLetter;
+          document.getElementById("win-counter").innerHTML = wins++;
+          revealLetter = randomizedWord.replace(/\S/i, correctLetter);
+          document.getElementById('mysteryWord').innerHTML = correctWord;
+          console.log("RevealLetter: " + revealLetter);
           alert("You won this round!!!");
              setInterval(function(){
                 location.reload()
@@ -158,6 +195,8 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
           }
 
           else if(guessesLeft === 0){
+            losses ++;
+            document.getElementById("loss-counter").innerHTML = losses++;
             var image = document.getElementById("earthDisplay")
              image.src="assets/images/youLose.png"
             console.log("You lose!")
@@ -177,9 +216,7 @@ document.getElementById('lettersGuessed').innerHTML = letterInput;
           else if(guessesLeft === -1){
                var image = document.getElementById("earthDisplay")
              image.src="assets/images/youLose.png"
-               setInterval(function(){
-                location.reload()
-              }, 3000);
+             location.reload();
           }
 
 
